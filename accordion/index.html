@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Widgets Accordian</title>
+        <link href="http://fonts.googleapis.com/css?family=Nobile:regular,bold" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="jquery.edina-mhub-horizontalAccordion-0.1.css" />
+        <script type="text/javascript" src="jquery.min.js">
+        </script>
+        <script type="text/javascript" src="jquery.edina-mhub-horizontalAccordion-0.1.min.js">
+        </script>
+        <script type="text/javascript">
+            $().ready(function(){
+                $('#accordion').horizontalAccordian({
+                    debug: true
+                });
+            });
+        </script>
+        <!--[if lt IE 9]>
+        <![endif]-->
+        <link rel="icon" type="image/png" href="../images/favicon.png" />
+    </head>
+    <body>
+        <div class="container">
+            <div id="accordion">
+                <h2><span>Mediahub gives access to a variety of sources</span></h2>
+                <h3 class="head-our"><a href="#our-collections"><span>Our collections</span></a></h3>
+                <div class="tab-our">
+                    <form action="" method="get">
+                        <p>
+                            The <a href="#our-collections">collections</a>
+                            in Mediahub include television news, documentary films, still images and classical music, covering a wide range of academic subjects
+                            <span class="tab-input"><input type="text" alt="Search query" />
+                                <button class="btn-black" title="Submit Search">
+                                    Search
+                                </button>
+                            </span>
+                        </p>
+                    </form>
+                </div>
+                <h3 class="head-open"><a href="#other-collections-open"><span>Other collections (open)</span></a></h3>
+                <div class="tab-open">
+                    <form action="" method="get">
+                        <p>
+                            Many <a href="#other-collections-open">other collections</a>
+                            searched by Mediahub are openly available <span class="tab-input"><input type="text" alt="Search query" />
+                                <button class="btn-black" title="Submit Search">
+                                    Search
+                                </button>
+                            </span>
+                        </p>
+                    </form>
+                </div>
+                <h3 class="head-restricted"><a href="#other-collections-restricted"><span>Other collections (restricted)</span></a></h3>
+                <div class="tab-restricted">
+                    <form action="" method="get">
+                        <p>
+                            A few of the <a href="#other-collections-restricted">other collections</a>
+                            searched by Mediahub are only available if you have appropriate authorisation or authentication <span class="tab-input"><input type="text" alt="Search query" />
+                                <button class="btn-black" title="Submit Search">
+                                    Search
+                                </button>
+                            </span>
+                        </p>
+                    </form>
+                </div>
+                <h3 class="head-showcase"><a href="#showcase"><span>View showcase example</span></a></h3>
+            </div>
+        </div>
+    </body>
+</html>

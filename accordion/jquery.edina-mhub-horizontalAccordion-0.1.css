@@ -1,0 +1,261 @@
+#accordion {
+    /*Layout*/
+    overflow: hidden;
+    position: relative;
+    /*Box Model*/
+    border: 1px solid #8c8c8c;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 200px;
+    margin: 0 auto;
+    width: 950px;
+    max-width: 100%;
+    min-width: 770px;
+    /*Background*/
+    background: #fff url('images/accordion-bg.png') center left no-repeat;
+    /*Text*/
+    font: normal 16px Nobile, arial, serif;
+    line-height: 1.5;
+    text-align: right;
+    /*Other*/
+    behavior: url('PIE.htc');
+}
+
+#accordion h2, #accordion p {
+    position: absolute;
+    left: 0;
+    margin: 0.6em;
+    padding: 0.3em 0.5em;
+    width: 300px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    -pie-background: rgba(255, 255, 255, 0.9);
+    font-size: 1.5em;
+    font-weight: normal;
+    text-align: left;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    behavior: url('PIE.htc');
+}
+
+#accordion > h2 span {
+    padding-right: 1.3em;
+    background: transparent url("images/arrows.png") no-repeat bottom right;
+}
+
+/*
+ * Headers
+ */
+#accordion h3 {
+    display: inline-block;
+    border: 1px solid #8c8c8c;
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+    height: 200px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 102px;
+    background: #e2e1e2; /* fallback (Opera) */
+    background: -moz-linear-gradient(left, #e2e1e2, #f7f7f7); /* Mozilla: */
+    background: -webkit-gradient(linear, left top, right top, from(#e2e1e2), to(#f7f7f7)); /* Chrome, Safari:*/
+	background: linear-gradient(45deg, #e2e1e2, #f7f7f7);
+	-pie-background: linear-gradient(45deg, #e2e1e2, #f7f7f7);
+	font-size: 0.8em;
+	text-align: left;
+
+	behavior: url('PIE.htc');
+}
+
+#accordion h3 a {
+    display: block;
+
+	height: 72px;
+    padding-top: 130px;
+
+	color: #666;
+	text-decoration: none;
+}
+
+#accordion h3 span {
+	display: block;
+
+	padding: 5px 0 0 16px;
+}
+
+#accordion h3.head-our a {
+    background: url("images/tab-head-our.png") no-repeat center 25px;
+}
+
+#accordion h3.head-our span {
+    background: url("images/tab-head-arrow-blue.png") no-repeat 4px 0;
+}
+
+#accordion h3.head-open a {
+    background: url("images/tab-head-open.png") no-repeat center 25px;
+}
+
+#accordion h3.head-open span {
+    background: url("images/tab-head-arrow-green.png") no-repeat 4px 0;
+}
+
+#accordion h3.head-restricted a {
+    background: url("images/tab-head-restricted.png") no-repeat center 25px;
+}
+
+#accordion h3.head-restricted span {
+    background: url("images/tab-head-arrow-red.png") no-repeat 4px 0;
+}
+
+#accordion h3.head-showcase a {
+    background: url("images/tab-head-showcase.png") no-repeat center 25px;
+}
+
+#accordion h3.head-showcase span {
+    background: url("images/tab-head-arrow-green.png") no-repeat 4px 0;
+}
+
+/*
+ * Tabs
+ */
+#accordion div {
+	position: absolute;
+
+	height: 200px;
+	left: 0;
+	width: 950px;
+
+	background-color: #fff;
+}
+
+#accordion div p {
+	margin: 0.8em;
+	width: 335px;
+
+	font-size: 1.1em;
+}
+
+#accordion div p a {
+    color: #06f;
+    text-decoration: none;
+}
+
+#accordion div p span.tab-input {
+    display: block;
+    text-align: right;
+}
+
+#accordion div.tab-our {
+	background: #fff url("images/tab-bg-our.png") no-repeat 5px center;
+}
+
+#accordion div.tab-open {
+	background: #fff url("images/tab-bg-open.png") no-repeat 5px center;
+}
+
+#accordion div.tab-restricted {
+	background: #fff url("images/tab-bg-restricted.png") no-repeat 5px center;
+}
+
+#accordion div.tab-showcase {
+	background: #fff url("images/tab-bg-showcase.png") no-repeat 5px center;
+	font-size: 1.2em;
+}
+
+#accordion div.tab-showcase span {
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+
+	padding: 3px auto;
+}
+
+#accordion div.tab-showcase span.moving-image {
+	background: transparent url("images/moving-image.png") no-repeat left center;
+}
+
+#accordion div.tab-showcase span.still-image {
+	background: transparent url("images/still-image.png") no-repeat left center;
+}
+
+#accordion div.tab-showcase span.sound {
+	background: transparent url("images/sound.png") no-repeat left center;
+}
+
+#accordion div.tab-showcase .btn-black {
+	display: inline-block;
+	position: relative;
+	left: 50px;
+	min-width: 6.5em;
+	font-size: 0.8em;
+}
+
+/**
+ * Button
+ */
+.btn-black {
+
+	position: relative;
+	padding: 0 14px;
+	margin: 0 .3em;
+	vertical-align: text-bottom;
+
+	border: 1px #000 solid;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+	-webkit-box-shadow: #666 0px 2px 3px;
+	-moz-box-shadow: #666 0px 2px 3px;
+	box-shadow: #666 0px 2px 3px;
+	min-width: 4em;
+
+	/* < IE8 button padding fix */
+    overflow: visible;
+
+	background: #424c3d;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#424c3d), to(#192115));
+	background: -moz-linear-gradient(#424c3d, #192115);
+	background: linear-gradient(#424c3d, #192115);
+	-pie-background: linear-gradient(#424c3d, #192115);
+
+	color: #fff;
+	font: normal 14px Nobile, arial, serif;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255,255,255,.3);
+
+	cursor: pointer;
+	behavior: url('PIE.htc');
+}
+
+#accordion .btn-black {
+	color: #fff;
+}
+
+.btn-black:hover {
+	background: #424c3d;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#424c3d), to(#000000));
+	background: -moz-linear-gradient(#424c3d, #000000);
+	background: linear-gradient(#424c3d, #000000);
+	-pie-background: linear-gradient(#424c3d, #000000);
+
+	behavior: url('PIE.htc');
+}
+
+.btn-black:active {
+	position: relative;
+	top: 1px;
+	left: 1px;
+
+	background: #424c3d;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#000000), to(#424c3d));
+	background: -moz-linear-gradient(#000000, #424c3d);
+	background: linear-gradient(#000000, #424c3d);
+	-pie-background: linear-gradient(#000000, #424c3d);
+
+	color: #999999;
+
+	behavior: url('PIE.htc');
+}
