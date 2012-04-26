@@ -31,10 +31,13 @@
         /**
          * Private variables
          */
-        var config, me;
+        var config, headers, tabs, me, // simple variables
+        $headers, $me, // jQuery variables
+        openTab, renderTabs; // functions
+        
         me = this;
         me.version = '0.1';
-        jMe = $(me);
+        $me = $(me);
 
         // Set defaults
         config = {
@@ -44,13 +47,13 @@
             opening_speed: 300,
             closing_speed: 600,
             tabs: 'div'
-        }
+        };
         $.extend(config, options);
 
-        headers = jMe.children(config.headers).get();
-        tabs = jMe.children(config.tabs).get();
+        headers = $me.children(config.headers).get();
+        tabs = $me.children(config.tabs).get();
 
-        jHeaders = $(headers);
+        $headers = $(headers);
 
         /**
          * Internal debugging function
@@ -59,7 +62,7 @@
             if (config.debug) {
                 $.debug('horizontalAccordion: ' + message);
             }
-        }
+        };
 
         me.debug('Edina Horizontal Accordion ' + me.version + ' started');
 
@@ -74,14 +77,14 @@
          */
         $(headers).each(function(i){
             if (i) { // for all but the first tab and contents
-                for (j = i; j < jHeaders.size(); j++) {
-                    $(headers[j]).data('open', $(headers[j]).data('open') + $(this).width() - 1)
+                for (var j = i; j < $headers.size(); j++) {
+                    $(headers[j]).data('open', $(headers[j]).data('open') + $(this).width() - 1);
                     $(headers[j]).next().data('open', $(headers[j]).data('open') + $(headers[j]).outerWidth());
                 }
             }
             else { // first tab and contents
-                jHeaders.first().data('open', -1)
-                jHeaders.first().next().data('open', jHeaders.first().outerWidth() - 1);
+                $headers.first().data('open', -1);
+                $headers.first().next().data('open', $headers.first().outerWidth() - 1);
             }
         });
 
@@ -92,24 +95,24 @@
         renderTabs = function(){
 
             // Need to walk backwards for this
-            for (i = headers.length - 1; i >= 0; i--) {
-                jThis = $(headers[i]);
+            for (var i = headers.length - 1; i >= 0; i--) {
+                var $this = $(headers[i]);
                 if (i == headers.length - 1) { //last tab
-                    jThis.data('closed', jMe.width() - jThis.width())
-                    jThis.css('left', jThis.data('closed'));
+                    $this.data('closed', $me.width() - $this.width());
+                    $this.css('left', $this.data('closed'));
 
-                    jThis.next().data('closed', jMe.width());
-                    jThis.next().css('left', jThis.next().data('closed'));
+                    $this.next().data('closed', $me.width());
+                    $this.next().css('left', $this.next().data('closed'));
                 }
                 else { //all other tabs
-                    jThis.data('closed', $(headers[i + 1]).position().left - jThis.width())
-                    jThis.css('left', jThis.data('closed'));
+                    $this.data('closed', $(headers[i + 1]).position().left - $this.width());
+                    $this.css('left', $this.data('closed'));
 
-                    jThis.next().data('closed', $(headers[i + 1]).position().left);
-                    jThis.next().css('left', jThis.next().data('closed'));
+                    $this.next().data('closed', $(headers[i + 1]).position().left);
+                    $this.next().css('left', $this.next().data('closed'));
                 }
             }
-        }
+        };
 
         /* Recalcuate tab and header closed positions on window resize */
         $(window).resize(function(){
@@ -124,36 +127,36 @@
          */
         openTab = function(focus){
 
-            jFocus = $(focus);
-            jFocus.addClass('focus');
+            var $focus = $(focus);
+            $focus.addClass('focus');
 
             me.debug('Opening tab...');
 
-            jFocus.next().prevAll(config.headers + ', ' + config.tabs).andSelf().stop().each(function(){
+            $focus.next().prevAll(config.headers + ', ' + config.tabs).andSelf().stop().each(function(){
                 $(this).animate({
                     left: $(this).data('open')
                 }, config.opening_speed);
             });
 
-            jFocus.next().nextAll(config.headers + ', ' + config.tabs).stop().each(function(){
+            $focus.next().nextAll(config.headers + ', ' + config.tabs).stop().each(function(){
                 $(this).animate({
                     left: $(this).data('closed')
                 }, config.closing_speed);
             });
-        }
+        };
 
         /* Animation trigger */
-        jHeaders.mouseenter(function(){
+        $headers.mouseenter(function(){
             openTab(this);
         });
 
         /* Accordion loss of focus */
-        jMe.mouseleave(function(){
-            jMe.children(config.headers + ', ' + config.tabs).stop().each(function(){
+        $me.mouseleave(function(){
+            $me.children(config.headers + ', ' + config.tabs).stop().each(function(){
                 $(this).animate({
                     left: $(this).data('closed')
                 }, config.closing_speed);
-            })
+            });
         });
 
         /* Kick shit off */
